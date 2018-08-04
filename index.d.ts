@@ -1,4 +1,4 @@
-declare module 'connected-react-router' {
+declare module '@postmates/connected-react-router' {
   import * as React from 'react'
   import { Middleware, Reducer } from 'redux'
   import { Action, History, Path, Location, LocationState, LocationDescriptorObject } from 'history'
