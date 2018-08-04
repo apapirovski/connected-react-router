@@ -1,6 +1,6 @@
 {
-  "name": "connected-react-router",
-  "version": "4.3.0",
+  "name": "@postmates/connected-react-router",
+  "version": "4.3.0-patch.1",
   "description": "A Redux binding for React Router v4",
   "main": "lib/index.js",
   "types": "./index.d.ts",
@@ -69,9 +69,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/supasate/connected-react-router.git"
+    "url": "https://github.com/postmates/connected-react-router.git"
   },
   "bugs": {
-    "url": "https://github.com/supasate/connected-react-router/issues"
+    "url": "https://github.com/postmates/connected-react-router/issues"
   }
 }
