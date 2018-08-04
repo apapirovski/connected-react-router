@@ -1,7 +1,7 @@
 declare module 'connected-react-router' {
   import * as React from 'react'
   import { Middleware, Reducer } from 'redux'
-  import { History, Path, Location, LocationState, LocationDescriptorObject } from 'history'
+  import { Action, History, Path, Location, LocationState, LocationDescriptorObject } from 'history'
 
   interface ConnectedRouterProps {
     history: History
@@ -9,11 +9,11 @@ declare module 'connected-react-router' {
 
   export interface RouterState {
     location: Location
-    action: 'POP' | 'PUSH'
+    action: Action
   }
 
-  export const LOCATION_CHANGE: string
-  export const CALL_HISTORY_METHOD: string
+  export const LOCATION_CHANGE = '@@router/LOCATION_CHANGE';
+  export const CALL_HISTORY_METHOD = '@@router/CALL_HISTORY_METHOD'
 
   export function push(path: Path, state?: LocationState): RouterAction;
   export function push(location: LocationDescriptorObject): RouterAction;
@@ -36,6 +36,11 @@ declare module 'connected-react-router' {
     args?: any[];
   }
 
+  export interface LocationChangeAction {
+    type: typeof LOCATION_CHANGE;
+    payload: RouterState;
+  }
+
   export interface RouterAction {
     type: typeof CALL_HISTORY_METHOD;
     payload: LocationActionPayload;
@@ -46,7 +51,7 @@ declare module 'connected-react-router' {
   }
 
   export function connectRouter(history: History)
-    : <S>(reducer: Reducer<S>) => Reducer<S>
+    : <S>(reducer: Reducer<S>) => Reducer<S & { router: RouterState }>
 
   export function routerMiddleware(history: History): Middleware
 }
